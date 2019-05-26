@@ -1,5 +1,5 @@
-function r = secant(f,df,x0,es,imax)
-    xr = x0;
+function r = secant(f,x,es,imax)
+    xr = x;
     ea = 10000;
     iter = 0;
     x0 = 0;
@@ -13,7 +13,7 @@ function r = secant(f,df,x0,es,imax)
         if(xr ~=0)
            ea = abs((xr-xrold)/xr)*100; 
         end
-        fprintf('%d \t %f \t %f \t %f \n', iter, xr, F, ea); 
+        fprintf('%d \t %f \t %f \t %f \n', iter, xr, fx, ea); 
     end
     r = xr;
 end
