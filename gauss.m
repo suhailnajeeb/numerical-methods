@@ -17,7 +17,6 @@ n = 3;
 for k = 1:n-1
    for i = k+1: n
        factor = A(i,k)/A(k,k);
-       %AA(i,:) = zeros(1,n);
        for j = 1 : n
            A(i,j) = A(i,j)-factor*A(k,j);
        end
