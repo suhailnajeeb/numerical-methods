@@ -1,0 +1,20 @@
+SUB Regress(x, y, n, al, a0, syx, r2)
+sumx  0: sumxy  0: st  0
+sumy  0: sumx2  0: sr  0
+DOFOR i  1, n
+sumx  sumx  xi
+sumy  sumy  yi
+sumxy  sumxy  xi*yi
+sumx2  sumx2  xi*xi
+END DO
+xm  sumx/n
+ym  sumy/n
+a1  (n*sumxy  sumx*sumy)(n*sumx2  sumx*sumx)
+a0  ym  a1*xm
+DOFOR i  1, n
+st  st  (yi  ym)2
+sr  sr  (yi  a1*xi  a0)2
+END DO
+syx  (sr/(n  2))0.5
+r2  (st  sr)/st
+END Regress
