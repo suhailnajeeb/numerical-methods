@@ -12,7 +12,7 @@ xm = mean(x);
 ym = mean(y);
 
 XI = [];
-for j = 1:m+3
+for j = 1:2*m+1
     sum = 0;
     for i=1:n
         sum = sum + power(x(i),j-1);
@@ -40,4 +40,33 @@ end
 
 B = transpose(XIYI);
 
-X = linsolve(A,B);
+n = 3;
+
+% Forward Elimination
+
+for k = 1:n-1
+   for i = k+1: n
+       factor = A(i,k)/A(k,k);
+       for j = 1 : n
+           A(i,j) = A(i,j)-factor*A(k,j);
+       end
+       B(i) = B(i)-factor*B(k);
+   end
+end
+
+% Back Substitution
+
+X = zeros(1,n);
+
+X(n) = B(n)/A(n,n);
+
+for i = n-1:-1:1
+    sum = B(i);
+    for j = i+1:n
+        sum = sum - A(i,j)*X(j);
+    end
+    X(i) = sum/A(i,i);
+end
+
+disp(X)
+
