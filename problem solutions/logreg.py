@@ -10,7 +10,7 @@ Y = [110, 250, 520, 860, 670]
 def printline(): print(
     '---------------------------------------------------------------------------------------')
 
-print('Logarithmic ponential Linear Regression on the provided data:')
+print('Logarithmic polynomial Linear Regression on the provided data:')
 
 printline()
 print("x1\tx2\tY\tx1'\tx2'\ty'\tx1'^2\tx2'^2\tx1'x2'\tx1'y\tx2'y")
