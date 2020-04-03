@@ -43,7 +43,9 @@ def steep_step_verbose(f, values, x, y, h):
     print('g(h) = ' + str(g))
     dgdh = Derivative(g,h).doit()
     print("g'(h) = " + str(dgdh))
-    H = solve(dgdh, h)[0]
+    H = solve(dgdh, h)
+    print('Solutions of h: ' + str(len(H)))
+    H = H[0]
     print('h* = ' + str(H))
     xnew = xi + dfdx*H
     ynew = yi + dfdy*H
