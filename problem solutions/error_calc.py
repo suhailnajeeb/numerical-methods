@@ -18,8 +18,28 @@ sr = lambda xi,yi : np.square(yi-a0-a1*xi-a2*np.square(xi)).round(4)
 
 def printline(): print('----------------------------------------------------------------------')
 
+ST = 0
+SR = 0
+
 printline()
 print('xi\t\tyi\t\t(yi-ym)^2\t(yi-a0-a1xi-a2xi^2)^2')
+printline()
 for i in range(len(x)):
-    printline()
-    print(str(x[i]) + '\t\t' + str(y[i]) + '\t\t' + str(st(y[i])) + '\t\t' + str(sr(x[i],y[i])))
+    St = st(y[i])
+    Sr = sr(x[i],y[i])
+    ST = ST + St
+    SR = SR + Sr
+    print(str(x[i]) + '\t\t' + str(y[i]) + '\t\t' + str(St) + '\t\t' + str(Sr))
+
+printline()
+print('\t\t\t\t' + str(ST) + '\t\t' + str(SR))
+
+n = len(x)
+
+#S_yx = np.sqrt((SR/(n-2)))
+
+S_y = np.sqrt((ST/(n-1)))
+r2 = (ST-SR)/ST
+
+print('Standard error: %f' %S_y)
+print('Co-efficient of determination: %f' %r2)
