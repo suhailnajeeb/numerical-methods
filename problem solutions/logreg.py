@@ -6,6 +6,8 @@ X1 = [4, 5, 7, 8, 9]
 X2 = [3, 4, 5, 6, 5]
 Y = [110, 250, 520, 860, 670]
 
+x1 = 5
+x2 = 7
 
 def printline(): print('---------------------------------------------------------------------------------------')
 
@@ -50,3 +52,27 @@ printline()
 print('\t\t\t' + str(sumx1.round(3)) + '\t' + str(sumx2.round(3)) + '\t' +
 str(sumy.round(3)) + '\t' + str(sumx1sqr.round(3)) + '\t' + str(sumx2sqr.round(3)) +
 '\t' + str(sumx1x2.round(3)) + '\t' + str(sumx1y.round(3)) + '\t' + str(sumx2y.round(3)))
+
+n = len(Y)
+
+A = np.array([n, sumx1, sumx2,
+    sumx1, sumx1sqr, sumx1x2,
+    sumx2, sumx1x2, sumx2sqr]).reshape((3,3))
+
+b = np.array([sumy, sumx1y, sumx2y])
+
+a0, a1, a2 = np.linalg.solve(A,b)
+a0 = 10**a0
+
+print()
+print('Solving the following equations: ')
+print(A, end = '')
+print('* [a0,a1,a2] =', end = '')
+print(b)
+print()
+print('Solution to the values: a0 = %f , a1 = %f, a2 = %f '% (a0, a1, a2))
+
+y = a0 * (x1**a1) * (x2**a2)
+
+print()
+print('Predicted value of y: %f' % y)
