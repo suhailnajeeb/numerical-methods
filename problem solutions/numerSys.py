@@ -1,4 +1,12 @@
+#------------Settings---------------
 
+target = 'smallest positive'
+
+bits = 9
+exponent_bits = 4
+mantissa_bits = 4
+
+#----------Helpers------------------
 
 def eval_mantissa(mantissa):
     value = 0
@@ -32,11 +40,7 @@ def eval_number(sign_bit, exponent_sign, exponent, mantissa):
         value = value*(-1)
     return value
 
-target = 'smallest positive'
-
-bits = 9
-exponent_bits = 4
-mantissa_bits = 4
+# ----------- Setup ---------------------
 
 if(target == 'smallest positive'): 
     sign_bit = 0
@@ -50,6 +54,8 @@ if(target == 'largest positive'):
 if(target == 'largest negative'):
     sign_bit = 1
     mode = 'min'
+
+# --------- production --------------------
 
 exponent = [1 for i in range(exponent_bits - 1)]
 
