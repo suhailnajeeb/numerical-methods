@@ -5,8 +5,8 @@ x = Symbol('x')
 y = Symbol('y')
 h = Symbol('h')
 
-f = 2*x*y + 2*x - x**2 - 2*y**2
-values = (-1,1)
+f = 2*x**2 - y + 3*x*y
+values = (2,3)
 
 def printline(): print('---------------------------------------------------------------------------------------')
 
@@ -58,4 +58,7 @@ values = steep_step_verbose(f, values, x, y, h)
 printline()
 print('Iteration 2: ')
 values = steep_step_verbose(f, values, x, y, h)
+(xi, yi) = values
+Y = f.evalf(subs = {x:xi, y:yi})
+print('Height on the mountain: ' + str(Y))
 printline()

@@ -27,9 +27,9 @@ sumx1y = 0
 sumx2y = 0
 
 for i in range(len(Y)):
-    x1 = np.log(X1[i]).round(3)
-    x2 = np.log(X2[i]).round(3)
-    y = np.log(Y[i]).round(3)
+    x1 = np.log10(X1[i]).round(3)
+    x2 = np.log10(X2[i]).round(3)
+    y = np.log10(Y[i]).round(3)
     x1sqr = np.square(x1).round(3)
     x2sqr = np.square(x2).round(3)
     x1x2 = (x1*x2).round(3)

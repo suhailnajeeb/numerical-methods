@@ -38,7 +38,7 @@ n = len(x)
 
 #S_yx = np.sqrt((SR/(n-2)))
 
-S_y = np.sqrt((ST/(n-1)))
+S_y = np.sqrt((SR/(n-3)))
 r2 = (ST-SR)/ST
 
 print('Standard error: %f' %S_y)
