@@ -2,8 +2,8 @@
 
 target = 'smallest positive'
 
-bits = 9
-exponent_bits = 4
+bits = 10
+exponent_bits = 5
 mantissa_bits = 4
 
 #----------Helpers------------------
